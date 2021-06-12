@@ -1,0 +1,28 @@
+@import "bootstrap";
+@import 'toastr';
+@import "style-starter";
+/*
+ *= require sweetalert
+ *= require sweetalert/themes/facebook
+ */
+.toast-message{
+  color: black;
+}
+
+#toast-container{
+  //background-color: lawngreen;
+}
+.toast-success{
+  background-color: green;
+}
+
+.toast-error{
+  background-color: red;
+}
+
+.login_new{
+  padding-left: 15px;
+}
+.input_register{
+  border-radius: 8px;
+}

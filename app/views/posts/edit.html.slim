@@ -1,0 +1,10 @@
+.row
+  .col-xl-12
+    .card
+      .card-body
+        .card-header
+          h5.card-title
+            | Bài Viết Mới
+        .tabs-style-two
+          = form_for @post, url: "/posts/#{@post.id}" ,method: :PATCH ,:html => {:multipart => true } do |f|
+            = render 'post', f: f

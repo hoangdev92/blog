@@ -1,0 +1,20 @@
+= javascript_include_tag Ckeditor.cdn_url
+.form-group.row
+  = f.label :name, class: 'col-sm-2 col-form-label'
+    |Tên Bài Viết
+    span.essential_mark
+      |(*)
+  .col-sm-10.col-lg-8
+    = f.text_field :name , class: 'form-control' , required: true
+    p.text-danger = inline_errors(f.object, :name)
+.form-group.row
+  label.col-sm-2.col-form-label for="editor"
+    | Nội Dung
+    span.essential_mark
+      |(*)
+  .col-sm-10.col-lg-8
+    = f.cktext_area :description, id: 'editor', class: 'ckeditor form-control', rows: '30', required: true
+.form-group.row
+  .text-center.col-12
+    = f.submit 'Lưu lại', class: 'btn btn-primary text-center'
+

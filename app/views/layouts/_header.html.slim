@@ -1,0 +1,67 @@
+header.w3l-header
+  /! /nav
+  nav.navbar.navbar-expand-lg.navbar-light.fill.px-lg-0.py-0.px-3
+    .container
+      - if user_signed_in?
+        = link_to new_post_path, class: 'navbar-brand' do
+          span.fa.fa-pencil-square-o
+            | Bài viết mới
+        /!
+          | if logo is image enable this
+          | <a class="navbar-brand" href="#index.html"
+          | <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" /
+          | </a
+        button.navbar-toggler.collapsed aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+          /! <span class="navbar-toggler-icon"></span
+          span.fa.icon-expand.fa-bars
+          span.fa.icon-close.fa-times
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item.active
+            a.nav-link href="/"  Trang chủ
+          li.nav-item.dropdown class="@@category__active"
+            a#navbarDropdown.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="" role="button"
+              | Danh mục
+              span.fa.fa-angle-down
+            .dropdown-menu aria-labelledby="navbarDropdown"
+              a.dropdown-item class="@@ls__active" href="lifestyle.html"  Bài viết Hot
+              a.dropdown-item class="@@cp__active" href="culture.html"  Bài viết mới
+          li.nav-item class="@@contact__active"
+            a.nav-link href="contact.html"  Liên Hệ
+        /! /search-right
+        .search-right.mt-lg-0.mt-2
+          a href="" title="search" data-remote="true"
+            span.fa.fa-search aria-hidden="true"
+          /! search popup
+          #search.pop-overlay
+            .popup
+              h3.hny-title.two Tìm kiếm
+              form.search-box action="#" method="Get"
+                input autofocus="" name="search" placeholder=("Tìm theo tên bài viết") required="required" type="search" /
+                button.btn type="submit"  Search
+              a.close href="#close"  ×
+        /! /search popup
+        /! //search-right
+        /! author
+        - if user_signed_in?
+          .header-author.d-flex.ml-lg-4.pl-2.mt-lg-0.mt-3.dropdown
+            a.img-circle.img-circle-sm.dropdown-toggle href="/users/:#{current_user.id}/edit" id="navbarDropdown1" aria-expanded="false" aria-haspopup="true"
+              = image_tag current_user.avatar.url, class: 'img-fluid', alt: 'avatar'
+            .align-self.ml-3
+              a href="#author"
+              h5 = current_user.name
+              = link_to('Đăng Xuất', destroy_user_session_path, method: :delete)
+        - else
+          = link_to('Đăng nhập', new_user_session_path, class: 'login_new')
+      /! // author
+      /! toggle switch for light and dark theme
+      .mobile-position
+        nav.navigation
+          .theme-switch-wrapper
+            label.theme-switch for="checkbox" 
+              input#change-theme type="checkbox" /
+            .mode-container
+              i.gg-sun
+              i.gg-moon
+                /! //toggle switch for light and dark theme
+                /! //nav

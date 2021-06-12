@@ -1,0 +1,17 @@
+= form_for @user, url: user_path, method: :post ,:html => {:multipart => true } do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :phone
+    = f.number_field :phone, class: 'form-control'
+  .form-group
+    = f.label :country
+    = f.text_field :country, class: 'form-control'
+  .form-group
+  = f.label :avatar
+  = f.file_field :avatar, class: 'form-control'
+  .class_show_image
+    = image_tag @user.avatar.url, size: "150x200", alt: 'show_avatar'
+  .text-center  
+    = f.submit class: 'btn btn-primary'
