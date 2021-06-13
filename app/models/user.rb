@@ -7,6 +7,10 @@ class User < ApplicationRecord
          :omniauthable , omniauth_providers: [:facebook, :google_oauth2]
 
   has_many :posts
+  has_many :user_friends, class_name: UserFriend.to_s, foreign_key: 'user_id'
+  has_many :friends, class_name: User.to_s, through: :user_friends
+
+  has_many :friend_users, class_name: UserFriend.to_s, foreign_key: 'fiend_id'
 
 
   def self.from_omniauth(auth)

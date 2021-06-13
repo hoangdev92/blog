@@ -1,4 +1,4 @@
-header.w3l-header
+header.w3l-header.mb-5
   /! /nav
   nav.navbar.navbar-expand-lg.navbar-light.fill.px-lg-0.py-0.px-3
     .container
@@ -26,6 +26,10 @@ header.w3l-header
             .dropdown-menu aria-labelledby="navbarDropdown"
               a.dropdown-item class="@@ls__active" href="lifestyle.html"  Bài viết Hot
               a.dropdown-item class="@@cp__active" href="culture.html"  Bài viết mới
+              - if user_signed_in?
+                = link_to 'Danh sách bài viết', posts_path, class: 'dropdown-item'
+                = link_to 'Danh sách tác giả', users_path, class: 'dropdown-item'
+                = link_to 'Danh sách bạn bè', posts_path, class: 'dropdown-item'
           li.nav-item class="@@contact__active"
             a.nav-link href="contact.html"  Liên Hệ
         /! /search-right

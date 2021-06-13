@@ -8,6 +8,15 @@
     = f.text_field :name , class: 'form-control' , required: true
     p.text-danger = inline_errors(f.object, :name)
 .form-group.row
+  = f.label :image_title, class: 'col-sm-2 col-form-label'
+    | Ảnh Tiêu Đề
+  .col-sm-10.col-lg-8
+    = f.file_field :image_title , class: 'form-control' , required: true
+    p.text-danger = inline_errors(f.object, :image_title)
+.show_image_title.text-center.mb-5
+  - if @post.image_title.present?
+    = image_tag @post.image_title.url, size: '300x180' ,alt: 'show_image_title', class: 'show_image_title'      
+.form-group.row
   label.col-sm-2.col-form-label for="editor"
     | Nội Dung
     span.essential_mark

@@ -1,0 +1,18 @@
+.container
+  .row
+    .col-md-8
+      .people-nearby
+        - @users.each do |user|
+          .nearby-user
+            .row
+              .col-md-2.col-sm-2
+                = image_tag user.avatar.present? ? user.avatar.url : 'no-avatar.png' , alt:'user', class: 'profile-photo-lg'
+              .col-md-7.col-sm-7
+                h5
+                  a.profile-link href="users/#{user.id}"  = user.name || 'Không tên'
+                p = user.country || 'Chưa cập nhật'
+                p.text-muted 
+                  |online lần cuối vào lúc :
+                  = user.created_at
+              .col-md-3.col-sm-3
+                button.btn.btn-primary.pull-right Add Friend

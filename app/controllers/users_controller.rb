@@ -1,7 +1,15 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[show]
+  
+  def index
+    @users = User.all.where.not(id: current_user.id)
+  end
 
   def edit
     @user = current_user
+  end
+
+  def show
   end
 
   def update
@@ -14,6 +22,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = User.find_by(id: params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:name, :avatar, :phone, :country)

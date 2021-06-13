@@ -1,0 +1,17 @@
+.container
+  .col-12
+    - @posts.decorate.each do |post|
+      .card.mb-3.mt-5
+        - if post.image_title.present?
+          = image_tag post.image_title.url, class: 'image_post', alt: 'post_image'
+        - else
+          = image_tag 'no_image.png', class: 'image_post', alt: 'post_image'
+        .card-body
+          h5.card-title = post.name
+          = link_to 'Xem', post_path(post.id), class: 'link mr-3'
+          = link_to 'Sửa bài viết', edit_post_path(post.id), class: 'link mr-3'
+          = link_to 'Xoá', post_path(post.id), method: :delete, class: 'link',data: { confirm: 'bạn chắc chắn muốn xoá bài viết này?' }
+          p.card-text
+            |sửa lần cuối : 
+            small.text-muted = post.updated_at
+  

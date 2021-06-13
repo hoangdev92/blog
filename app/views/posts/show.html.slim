@@ -1,0 +1,9 @@
+= javascript_pack_tag 'show_post'
+.container
+  .col-12
+    h5.text-center = @post.name
+    p.text-center = @post.description.html_safe
+    .fb-comments data-href="#{request.original_url}" data-numposts="5" data-width="100%" data-mobile="Auto-detected"
+ 
+#fb-root
+script async="" crossorigin="anonymous" defer="" nonce="8SUv5XSh" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0&appId=1192064011171741&autoLogAppEvents=1" 
