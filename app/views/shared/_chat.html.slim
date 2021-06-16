@@ -1,0 +1,75 @@
+.show_pop_up_chat.text-right
+  .row
+    .round.hollow.text-center
+      button.btn.btn-outline-primary.show_button_open_chat#addClass 
+        span.glyphicon.glyphicon-comment
+        | Open in chat
+#qnimate.popup-box.chat-popup
+  .popup-head
+    .popup-head-left.pull-left
+      img alt="iamgurdeeposahan" src="http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg" /
+      | Gurdeep Osahan
+    .popup-head-right.pull-right
+      .btn-group
+        button.chat-header-button aria-expanded="false" data-toggle="dropdown" type="button" 
+          i.glyphicon.glyphicon-cog
+        ul.dropdown-menu.pull-right role="menu" 
+          li
+            a href="#"  Media
+          li
+            a href="#"  Block
+          li
+            a href="#"  Clear Chat
+          li
+            a href="#"  Email Chat
+      button#removeClass.chat-header-button.pull-right data-widget="remove" type="button" 
+        i.glyphicon.glyphicon-off
+  .popup-messages
+    .direct-chat-messages
+      .chat-box-single-line
+        abbr.timestamp October 8th, 2015
+      /! Message. Default to the left
+      .direct-chat-msg.doted-border
+        .direct-chat-info.clearfix
+          span.direct-chat-name.pull-left Osahan
+        /! /.direct-chat-info
+        img.direct-chat-img alt=("message user image") src="http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg" /
+        /! /.direct-chat-img
+        .direct-chat-text
+          | Hey bro, how’s everything going ?
+        .direct-chat-info.clearfix
+          span.direct-chat-timestamp.pull-right 3.36 PM
+        .direct-chat-info.clearfix
+          span.direct-chat-img-reply-small.pull-left
+          span.direct-chat-reply-name Singh
+        /! /.direct-chat-text
+      /! /.direct-chat-msg
+      .chat-box-single-line
+        abbr.timestamp October 9th, 2015
+      /! Message. Default to the left
+      .direct-chat-msg.doted-border
+        .direct-chat-info.clearfix
+          span.direct-chat-name.pull-left Osahan
+        /! /.direct-chat-info
+        img.direct-chat-img alt="iamgurdeeposahan" src="http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg" /
+        /! /.direct-chat-img
+        .direct-chat-text
+          | Hey bro, how’s everything going ?
+        .direct-chat-info.clearfix
+          span.direct-chat-timestamp.pull-right 3.36 PM
+        .direct-chat-info.clearfix
+          img.direct-chat-img.big-round alt="iamgurdeeposahan" src="http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg" /
+          span.direct-chat-reply-name Singh
+        /! /.direct-chat-text
+      /! /.direct-chat-msg
+  .popup-messages-footer
+    textarea#status_message cols="40" name="message" placeholder=("Type a message...") rows="10" 
+    .btn-footer
+      button.bg_none
+        i.glyphicon.glyphicon-film
+      button.bg_none
+        i.glyphicon.glyphicon-camera
+      button.bg_none
+        i.glyphicon.glyphicon-paperclip
+      button.bg_none.pull-right
+        i.glyphicon.glyphicon-thumbs-up

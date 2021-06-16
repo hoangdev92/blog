@@ -12,6 +12,11 @@ class UsersController < ApplicationController
   def show
   end
 
+  def add_friend
+    if params[:user_id]
+    end
+  end
+
   def update
     if current_user.update(user_params)
       flash[:success] = 'update thanh cong'

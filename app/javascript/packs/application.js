@@ -3,6 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 import "../stylesheets/application.scss"
+import "@fortawesome/fontawesome-free/css/all"
 
 
 require("@rails/ujs").start()
@@ -10,19 +11,26 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
-
+require("moment")
+require("popper.js").default
 
 import "bootstrap"
 import "../stylesheets/application"
-
+import toastr from 'toastr'
+import * as Routes from 'routes.js.erb';
 //= require ckeditor-jquery
 //= require jquery
 //= require sweetalert
+// require("packs/hover")
+//= require jquery-ui/autocomplete
+//= require jquery-ui
+//= require moment
+//= require select2
 
 
-
-import toastr from 'toastr'
 window.toastr = toastr
+window.Routes = Routes;
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -36,9 +44,21 @@ $(function () {
       $('body').toggleClass('noscroll');
   })
 });
+$(function(){
+  $("#addClass").click(function () {
+    $('#qnimate').addClass('popup-box-on');
+  });
+    
+  $("#removeClass").click(function () {
+    $('#qnimate').removeClass('popup-box-on');
+  });
+})
 
 
 $(document).ready(function (e) {
+  $('#action_menu_btn').click(function(){
+    $('.action_menu').toggle();
+  });
   const toggleSwitch = $(document).find('.theme-switch input#change-theme');
   const currentTheme = localStorage.getItem('theme');
 

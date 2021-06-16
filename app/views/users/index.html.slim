@@ -1,18 +1,22 @@
+= javascript_pack_tag 'addFriend'
 .container
   .row
-    .col-md-8
+    .col-md-12
       .people-nearby
         - @users.each do |user|
           .nearby-user
             .row
               .col-md-2.col-sm-2
                 = image_tag user.avatar.present? ? user.avatar.url : 'no-avatar.png' , alt:'user', class: 'profile-photo-lg'
-              .col-md-7.col-sm-7
+              .col-md-5.col-sm-5
                 h5
                   a.profile-link href="users/#{user.id}"  = user.name || 'Không tên'
                 p = user.country || 'Chưa cập nhật'
                 p.text-muted 
                   |online lần cuối vào lúc :
-                  = user.created_at
-              .col-md-3.col-sm-3
-                button.btn.btn-primary.pull-right Add Friend
+                  = user.last_sign_in_at
+              .col-md-5.col-sm-5
+                button.btn.btn-primary.mr-3.add_fiend data-user-id="#{user.id}" 
+                  | Thêm bạn
+                a.btn.btn-primary.chat_user data-user-id="#{user.id}" href="#{chat_user_path}"
+                  | Chat   
